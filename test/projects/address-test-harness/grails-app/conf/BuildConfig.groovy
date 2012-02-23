@@ -21,6 +21,7 @@ grails.project.dependency.resolution = {
         grailsHome()
         grailsCentral()
         mavenCentral()
+        mavenRepo "http://m2repo.spockframework.org/snapshots"
 
         // uncomment these to enable remote dependency resolution from public Maven repositories
         //mavenCentral()
@@ -30,10 +31,16 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
-    dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+    def gebVersion = '0.6.1'
+    def seleniumVersion = '2.13.0'
 
-        // runtime 'mysql:mysql-connector-java:5.1.16'
+    dependencies {
+        test "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+        test "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+        test "org.codehaus.geb:geb-spock:$gebVersion"
+        test("org.codehaus.groovy.modules.http-builder:http-builder:0.5.1") {
+            excludes "groovy", "xml-apis"
+        }
     }
 
     plugins {
@@ -42,6 +49,8 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.1.5"
 
         build ":tomcat:$grailsVersion"
+        test ":geb:$gebVersion"
+        test ":spock:0.6-SNAPSHOT"
     }
 }
 
