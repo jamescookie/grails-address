@@ -36,6 +36,7 @@
       <sourceFolder url="file://$MODULE_DIR$/grails-app/domain" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -109,12 +110,24 @@
           <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.apache.tomcat.embed/tomcat-embed-logging-log4j/jars/tomcat-embed-logging-log4j-7.0.16.jar!/" />
           <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.apache.tomcat.embed/tomcat-embed-jasper/jars/tomcat-embed-jasper-7.0.16.jar!/" />
           <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.16.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.hibernate/hibernate-core/jars/hibernate-core-3.6.7.Final.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.hibernate/hibernate-ehcache/jars/hibernate-ehcache-3.6.7.Final.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/dom4j/dom4j/jars/dom4j-1.6.1.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/javassist/javassist/jars/javassist-3.12.0.GA.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/javax.validation/validation-api/jars/validation-api-1.0.0.GA.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.hibernate/hibernate-validator/jars/hibernate-validator-4.1.0.Final.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.hibernate/hibernate-commons-annotations/jars/hibernate-commons-annotations-3.2.0.Final.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/antlr/antlr/jars/antlr-2.7.6.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.eclipse.jdt.core.compiler/ecj/jars/ecj-3.6.2.jar!/" />
+          <root url="jar://$USER_HOME_GRAILS$/ivy-cache/org.apache.tomcat/tomcat-catalina-ant/jars/tomcat-catalina-ant-7.0.16.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="Address-test-harness-grailsPlugins" />
+    <orderEntry type="module" module-name="Grails-address" exported="" />
   </component>
 </module>
 

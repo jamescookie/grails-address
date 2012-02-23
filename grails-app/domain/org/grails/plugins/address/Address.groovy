@@ -18,4 +18,19 @@ class Address {
         postCode nullable: false, blank: false
         country  nullable: true,  blank: true
     }
+
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "address1='" + address1 + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", address3='" + address3 + '\'' +
+                ", town='" + town + '\'' +
+                ", county='" + county + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
+
 }
