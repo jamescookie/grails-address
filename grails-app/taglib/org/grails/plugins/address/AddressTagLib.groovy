@@ -7,6 +7,7 @@ class AddressTagLib {
         def address = args.address
         if (!address || !(address instanceof Address)) throw new IllegalArgumentException("Need to supply an address")
         out << '<ul class="address">'
+        if (body) out << body()
         renderField(address, "line1")
         renderField(address, "line2")
         renderField(address, "line3")

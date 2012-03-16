@@ -42,4 +42,10 @@ class AddressTagLibTests {
                 postCode: "WW1 1WW")
         assert applyTemplate('<address:display address="${address}" />', [address: address]) == '<ul class="address"><li class="line1">line 1</li><li class="town">a town</li><li class="postCode">WW1 1WW</li></ul>'
     }
+
+    void testShouldRenderBodyAsPartOfList() {
+        def address = new Address(
+                line1: "line 1")
+        assert applyTemplate('<address:display address="${address}"><li>A name</li></address:display>', [address: address]) == '<ul class="address"><li>A name</li><li class="line1">line 1</li></ul>'
+    }
 }
