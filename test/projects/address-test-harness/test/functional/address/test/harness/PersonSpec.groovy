@@ -23,13 +23,43 @@ class PersonSpec extends address.test.harness.GebSpec {
 
         then:
         form."name"().value() == ""
-        form."address.address1"().value() == ""
-        form."address.address2"().value() == ""
-        form."address.address3"().value() == ""
+        form."address.line1"().value() == ""
+        form."address.line2"().value() == ""
+        form."address.line3"().value() == ""
         form."address.town"().value() == ""
         form."address.county"().value() == ""
         form."address.postCode"().value() == ""
         form."address.country"().value() == ""
+    }
+
+    def "Can add simple address"() {
+        given:
+        to PersonCreate
+
+        when:
+        form."name" = "Fred Bloggs"
+        form."address.line1" = "Flat 16"
+        form."address.line2" = "23a High Street"
+        form."address.line3" = ""
+        form."address.town" = "Brentford"
+        form."address.county" = "Middlesex"
+        form."address.postCode" = "TW89EW"
+        form."address.country" = "UK"
+
+        and:
+        save PersonShow
+
+        then:
+        at PersonShow
+        address.field('name').text() == "Fred Bloggs"
+        address.field('line1').text() == "Flat 16"
+        address.field('line2').text() == "23a High Street"
+        !address.field('line3')
+        address.field('town').text() == "Brentford"
+        address.field('county').text() == "Middlesex"
+        address.field('postCode').text() == "TW89EW"
+        address.field('country').text() == "UK"
+
     }
 
 }

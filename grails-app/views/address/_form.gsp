@@ -1,24 +1,24 @@
 <%@ page import="org.grails.plugins.address.Address" %>
 <div class="address">
-    <div class="address1 fieldcontain ${hasErrors(bean: addressInstance, field: 'address1', 'error')} ">
-        <label for="${prefix}address1">
-            <g:message code="address.address1.label" default="Address Line 1" />
+    <div class="line1 fieldcontain ${hasErrors(bean: addressInstance, field: 'line1', 'error')} ">
+        <label for="${prefix}line1">
+            <g:message code="address.line1.label" default="Address Line 1" />
         </label>
-        <g:textField name="${prefix}address1" value="${addressInstance?.address1}" />
+        <g:textField name="${prefix}line1" value="${addressInstance?.line1}" />
     </div>
 
-    <div class="address2 fieldcontain ${hasErrors(bean: addressInstance, field: 'address2', 'error')} ">
-        <label for="${prefix}address2">
-            <g:message code="address.address2.label" default="Address Line 2" />
+    <div class="line2 fieldcontain ${hasErrors(bean: addressInstance, field: 'line2', 'error')} ">
+        <label for="${prefix}line2">
+            <g:message code="address.line2.label" default="Address Line 2" />
         </label>
-        <g:textField name="${prefix}address2" value="${addressInstance?.address2}" />
+        <g:textField name="${prefix}line2" value="${addressInstance?.line2}" />
     </div>
 
-    <div class="address3 fieldcontain ${hasErrors(bean: addressInstance, field: 'address3', 'error')} ">
-        <label for="${prefix}address3">
-            <g:message code="address.address3.label" default="Address Line 3" />
+    <div class="line3 fieldcontain ${hasErrors(bean: addressInstance, field: 'line3', 'error')} ">
+        <label for="${prefix}line3">
+            <g:message code="address.line3.label" default="Address Line 3" />
         </label>
-        <g:textField name="${prefix}address3" value="${addressInstance?.address3}" />
+        <g:textField name="${prefix}line3" value="${addressInstance?.line3}" />
     </div>
 
     <div class="town fieldcontain ${hasErrors(bean: addressInstance, field: 'town', 'error')} ">
