@@ -29,6 +29,10 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+//        compile ":constraints:0.8.0"
+        runtime(":hibernate:$grailsVersion") {
+            export = false
+        }
         build(":tomcat:$grailsVersion",
               ":svn:latest.integration",
               ":release:1.0.0") {
