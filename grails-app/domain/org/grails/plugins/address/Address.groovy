@@ -19,7 +19,6 @@ class Address {
         country  nullable: true,  blank: true
     }
 
-
     @Override
     public String toString() {
         return "Address{" +
