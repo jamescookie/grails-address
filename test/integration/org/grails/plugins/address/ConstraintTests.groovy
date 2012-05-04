@@ -6,11 +6,18 @@ class ConstraintTests extends GroovyTestCase {
     void testDefaultConstraints() {
         def address = new Address(line1: 'line1', town: 'town', postCode: 'AA11AA')
         address.save()
-        
+
         assertFalse address.hasErrors()
     }
     
-    void testNoConstraints() {
+    void testFailingDefaultConstraints() {
+        def address = new Address()
+        address.save()
+
+        assertTrue address.hasErrors()
+    }
+
+    void testOverridingDefaultConstraints() {
         grailsApplication.config.grails.plugin.address.line1 = /.*/
         grailsApplication.config.grails.plugin.address.town = /.*/
         grailsApplication.config.grails.plugin.address.postCode = /.*/
@@ -21,16 +28,20 @@ class ConstraintTests extends GroovyTestCase {
     }
     
     void testOneConstraintNotMet() {
-        def address = new Address()
         grailsApplication.config.grails.plugin.address.line1 = /\d+/
+        grailsApplication.config.grails.plugin.address.town = /.*/
+        grailsApplication.config.grails.plugin.address.postCode = /.*/
+        def address = new Address()
         address.save()
 
         assertTrue address.hasErrors()
     }
 
     void testOneConstraintMet() {
-        def address = new Address(line1: '123')
         grailsApplication.config.grails.plugin.address.line1 = /\d+/
+        grailsApplication.config.grails.plugin.address.town = /.*/
+        grailsApplication.config.grails.plugin.address.postCode = /.*/
+        def address = new Address(line1: '123')
         address.save()
 
         assertFalse address.hasErrors()

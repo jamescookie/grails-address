@@ -10,13 +10,13 @@ class Address {
     String country
     
     static constraints = {
-        line1    nullable: false, blank: false
-        line2    nullable: true,  blank: true
-        line3    nullable: true,  blank: true
-        town     nullable: false, blank: false
-        county   nullable: true,  blank: true
-        postCode nullable: false, blank: false
-        country  nullable: true,  blank: true
+        line1    nullable: true, blank: true, address: [property: 'line1']
+        line2    nullable: true, blank: true, address: [property: 'line2']
+        line3    nullable: true, blank: true, address: [property: 'line3']
+        town     nullable: true, blank: true, address: [property: 'town']
+        county   nullable: true, blank: true, address: [property: 'county']
+        postCode nullable: true, blank: true, address: [property: 'postCode']
+        country  nullable: true, blank: true, address: [property: 'country']
     }
 
     @Override
