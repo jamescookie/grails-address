@@ -62,4 +62,28 @@ class PersonSpec extends address.test.harness.GebSpec {
 
     }
 
+    def "Can override default config"() {
+        given:
+        to PersonCreate
+
+        when:
+        form."name" = "Fred Bloggs"
+        form."address.line1" = "Flat 16"
+        form."address.postCode" = "TW89EW"
+
+        and:
+        save PersonShow
+
+        then:
+        at PersonShow
+        address.field('name').text() == "Fred Bloggs"
+        address.field('line1').text() == "Flat 16"
+        !address.field('line2')
+        !address.field('line3')
+        !address.field('town')
+        !address.field('county')
+        address.field('postCode').text() == "TW89EW"
+        !address.field('country')
+    }
+
 }

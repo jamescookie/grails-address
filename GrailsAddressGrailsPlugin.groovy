@@ -29,7 +29,8 @@ An address domain object that can be embedded in other domain object to save red
     }
 
     protected mergeConfig(application) {
-        application.config.merge(loadConfig(application))
+        def addressConfig = application.config.grails?.plugin?.address?.clone()
+        application.config.merge(loadConfig(application)).grails.plugin.address.merge(addressConfig)
     }
 
     protected loadConfig(application) {
