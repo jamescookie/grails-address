@@ -62,7 +62,7 @@ class PersonSpec extends address.test.harness.GebSpec {
 
     }
 
-    def "Can override default config"() {
+    def "Default config can be overridden"() {
         given:
         to PersonCreate
 
@@ -84,6 +84,30 @@ class PersonSpec extends address.test.harness.GebSpec {
         !address.field('county')
         address.field('postCode').text() == "TW89EW"
         !address.field('country')
+    }
+
+    def "Labels can be overridden"() {
+        given:
+        to PersonCreate
+
+        expect:
+        $("form").find("label", for: "address.line3").text() == "Company Name"
+    }
+
+    def "Error messages can be overridden"() {
+        given:
+        to PersonCreate
+
+        and:
+        form."name" = "Fred Bloggs"
+        form."address.line1" = "Flat xx"
+        form."address.postCode" = "Not a postcode"
+
+        when:
+        save PersonEdit
+
+        then:
+        $('.errors li')*.text() == ["Address error - line1: Flat xx does not match \\w \\d+", "Invalid postal code, please sort it out."]
     }
 
 }

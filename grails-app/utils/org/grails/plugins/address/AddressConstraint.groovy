@@ -13,7 +13,11 @@ class AddressConstraint {
         def regex = grailsApplication.config.grails?.plugin?.address?."$property"
         if (regex) {
             def test = val?.toString() ?: ""
-            return (test =~ regex).asBoolean()
+            if ((test =~ regex).asBoolean()) {
+                return true
+            } else {
+                return ["default.invalid.address.$property".toString(), regex]
+            }
         } else {
             return true
         }
