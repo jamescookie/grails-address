@@ -44,7 +44,7 @@ class PersonSpec extends address.test.harness.GebSpec {
         form."address.town" = "Brentford"
         form."address.county" = "Middlesex"
         form."address.postCode" = "TW89EW"
-        form."address.country" = "UK"
+        form."address.country" = "United Kingdom"
 
         and:
         save PersonShow
@@ -58,7 +58,7 @@ class PersonSpec extends address.test.harness.GebSpec {
         address.field('town').text() == "Brentford"
         address.field('county').text() == "Middlesex"
         address.field('postCode').text() == "TW89EW"
-        address.field('country').text() == "UK"
+        address.field('country').text() == "United Kingdom"
 
     }
 

@@ -62,8 +62,10 @@ grails.hibernate.cache.queries = true
 grails {
     plugin {
         address {
-            line1 = /\w \d+/
-            town = '.*'
+            validation {
+                line1 = /\w \d+/
+                town = '.*'
+            }
         }
     }
 }

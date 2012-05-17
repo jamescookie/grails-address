@@ -14,7 +14,10 @@ class AddressTagLib {
         renderField(address, "town")
         renderField(address, "county")
         renderField(address, "postCode")
-        renderField(address, "country")
+        def country = address.country
+        if (country) {
+            out << """<li class="country">${g.country(code: country)}</li>"""
+        }
         out << '</ul>'
     }
 

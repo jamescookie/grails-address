@@ -29,8 +29,18 @@ An address domain object that can be embedded in other domain object to save red
     }
 
     protected mergeConfig(application) {
-        def addressConfig = application.config.grails?.plugin?.address?.clone()
+        Map addressConfig = (Map) application.config.grails?.plugin?.address?.clone()
+        goDeep(addressConfig, application.config.grails?.plugin?.address)
         application.config.merge(loadConfig(application)).grails.plugin.address.merge(addressConfig)
+    }
+
+    protected goDeep(Map thing, Map otherThing) {
+        thing?.each {
+            if (it.value instanceof Map) {
+                thing."${it.key}" = otherThing."${it.key}".clone()
+                goDeep(thing."${it.key}", otherThing."${it.key}")
+            }
+        }
     }
 
     protected loadConfig(application) {

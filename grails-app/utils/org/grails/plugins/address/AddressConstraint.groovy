@@ -10,7 +10,7 @@ class AddressConstraint {
 
     def validate = { val, obj ->
         def property = params.property
-        def regex = grailsApplication.config.grails?.plugin?.address?."$property"
+        def regex = grailsApplication.config.grails?.plugin?.address?.validation?."$property"
         if (regex) {
             def test = val?.toString() ?: ""
             if ((test =~ regex).asBoolean()) {

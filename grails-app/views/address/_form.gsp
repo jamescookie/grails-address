@@ -46,6 +46,11 @@
         <label for="${prefix}country">
             <g:message code="address.country.label" default="Country" />
         </label>
-        <g:textField name="${prefix}country" value="${addressInstance?.country}" />
+        <g:if test="${grailsApplication.config.grails?.plugin?.address?.countryCodes}">
+            <g:countrySelect name="${prefix}country" value="${addressInstance?.country}" noSelection="['':'']" from="${grailsApplication.config.grails?.plugin?.address?.countryCodes}"/>
+        </g:if>
+        <g:else>
+            <g:countrySelect name="${prefix}country" value="${addressInstance?.country}" noSelection="['':'']"/>
+        </g:else>
     </div>
 </div>
