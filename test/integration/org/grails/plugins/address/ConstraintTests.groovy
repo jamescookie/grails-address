@@ -18,9 +18,9 @@ class ConstraintTests extends GroovyTestCase {
     }
 
     void testOverridingDefaultConstraints() {
-        grailsApplication.config.grails.plugin.address.line1 = /.*/
-        grailsApplication.config.grails.plugin.address.town = /.*/
-        grailsApplication.config.grails.plugin.address.postCode = /.*/
+        grailsApplication.config.grails.plugin.address.validation.line1 = /.*/
+        grailsApplication.config.grails.plugin.address.validation.town = /.*/
+        grailsApplication.config.grails.plugin.address.validation.postCode = /.*/
         def address = new Address()
         address.save()
         
@@ -28,9 +28,9 @@ class ConstraintTests extends GroovyTestCase {
     }
     
     void testOneConstraintNotMet() {
-        grailsApplication.config.grails.plugin.address.line1 = /\d+/
-        grailsApplication.config.grails.plugin.address.town = /.*/
-        grailsApplication.config.grails.plugin.address.postCode = /.*/
+        grailsApplication.config.grails.plugin.address.validation.line1 = /\d+/
+        grailsApplication.config.grails.plugin.address.validation.town = /.*/
+        grailsApplication.config.grails.plugin.address.validation.postCode = /.*/
         def address = new Address()
         address.save()
 
@@ -38,9 +38,9 @@ class ConstraintTests extends GroovyTestCase {
     }
 
     void testOneConstraintMet() {
-        grailsApplication.config.grails.plugin.address.line1 = /\d+/
-        grailsApplication.config.grails.plugin.address.town = /.*/
-        grailsApplication.config.grails.plugin.address.postCode = /.*/
+        grailsApplication.config.grails.plugin.address.validation.line1 = /\d+/
+        grailsApplication.config.grails.plugin.address.validation.town = /.*/
+        grailsApplication.config.grails.plugin.address.validation.postCode = /.*/
         def address = new Address(line1: '123')
         address.save()
 

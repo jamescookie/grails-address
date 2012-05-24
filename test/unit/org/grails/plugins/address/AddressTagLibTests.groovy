@@ -31,8 +31,8 @@ class AddressTagLibTests {
                 town: "a town",
                 postCode: "WW1 1WW",
                 county: "a county",
-                country: "a country")
-        assert applyTemplate('<address:display address="${address}" />', [address: address]) == '<ul class="address"><li class="line1">line 1</li><li class="line2">line 2</li><li class="line3">line 3</li><li class="town">a town</li><li class="county">a county</li><li class="postCode">WW1 1WW</li><li class="country">a country</li></ul>'
+                country: "gbr")
+        assert applyTemplate('<address:display address="${address}" />', [address: address]) == '<ul class="address"><li class="line1">line 1</li><li class="line2">line 2</li><li class="line3">line 3</li><li class="town">a town</li><li class="county">a county</li><li class="postCode">WW1 1WW</li><li class="country">United Kingdom</li></ul>'
     }
 
     void testShouldRenderPartialAddress() {
