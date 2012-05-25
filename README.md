@@ -12,6 +12,18 @@ The fields that are defined are:
 *  postCode
 *  country
 
+##Displaying
+
+There is a taglib to assist you when you want to display an address:
+
+    <address:display address="${personInstance?.address}"/>
+
+This will create a unordered list that contains all the fields that have been populated. Each list item will have the class of the field name so that you can target them for styling.
+
+If you want to include extra list items in this list, them you can give them in the body of the taglib. e.g.
+
+    <address:display address="${personInstance?.address}"/><li class="name">${personInstance?.name}</li></address:display>
+
 ##Customisable
 
 You can customise the address to suit your needs, but the same customisations will apply to all your address objects.
