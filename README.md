@@ -18,7 +18,17 @@ There is a taglib to assist you when you want to display an address:
 
     <address:display address="${personInstance?.address}"/>
 
-This will create a unordered list that contains all the fields that have been populated. Each list item will have the class of the field name so that you can target them for styling.
+This will create a unordered list that contains all the fields that have been populated. Each list item will have the class of the field name so that you can target them for styling. e.g.
+
+    <ul class="address">
+        <li class="line1">line 1</li>
+        <li class="line2">line 2</li>
+        <li class="line3">line 3</li>
+        <li class="town">a town</li>
+        <li class="county">a county</li>
+        <li class="postCode">WW1 1WW</li>
+        <li class="country">United Kingdom</li>
+    </ul>
 
 If you want to include extra list items in this list, them you can give them in the body of the taglib. e.g.
 

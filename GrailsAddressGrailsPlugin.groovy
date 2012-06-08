@@ -19,7 +19,7 @@ class GrailsAddressGrailsPlugin {
 An address domain object that can be embedded in other domain object to save redefining it all the time
 '''
 
-    def documentation = "http://grails.org/plugin/grails-address"
+    def documentation = "https://github.com/jamescookie/grails-address"
 
     def license = "APACHE"
     def scm = [ url: "http://github.com/jamescookie/grails-address" ]

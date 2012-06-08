@@ -48,4 +48,28 @@ class AddressTagLibTests {
                 line1: "line 1")
         assert applyTemplate('<address:display address="${address}"><li>A name</li></address:display>', [address: address]) == '<ul class="address"><li>A name</li><li class="line1">line 1</li></ul>'
     }
+
+    void testShouldRenderAsString() {
+        def address = new Address(
+                line1: "line 1",
+                line2: "line 2",
+                line3: "line 3",
+                town: "a town",
+                postCode: "WW1 1WW",
+                county: "a county",
+                country: "gbr")
+        assert applyTemplate('<address:display address="${address}" as="string" />', [address: address]) == 'line 1, line 2, line 3, a town, a county, WW1 1WW, United Kingdom'
+    }
+
+    void testCanRenderEmptyAddressAsString() {
+        def address = new Address()
+        assert applyTemplate('<address:display address="${address}" as="string" />', [address: address]) == ''
+    }
+
+    void testCannotRenderAsAnythingElse() {
+        def address = new Address()
+        shouldFail {
+            applyTemplate('<address:display address="${address}" as="rubbish" />', [address: address])
+        }
+    }
 }
