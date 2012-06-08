@@ -34,6 +34,10 @@ If you want to include extra list items in this list, them you can give them in 
 
     <address:display address="${personInstance?.address}"/><li class="name">${personInstance?.name}</li></address:display>
 
+It is also possible to render the address as a comma separated string:
+
+    <address:display address="${personInstance?.address}" as="string" />
+
 ##Customisable
 
 You can customise the address to suit your needs, but the same customisations will apply to all your address objects.
