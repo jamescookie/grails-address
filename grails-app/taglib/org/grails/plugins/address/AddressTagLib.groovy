@@ -5,6 +5,12 @@ import org.apache.commons.lang.StringUtils
 class AddressTagLib {
     static namespace = "address"
 
+    /**
+     * Renders a display of the address
+     * 
+     * @attr address REQUIRED the address to be rendered
+     * @attr as how the address should be rendered (default is list)
+     */
     def display = {args, body ->
         def address = args.address
         if (!address || !(address instanceof Address)) throw new IllegalArgumentException("Need to supply an address")
