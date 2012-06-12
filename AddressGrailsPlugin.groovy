@@ -1,6 +1,6 @@
 import grails.util.Environment
 
-class GrailsAddressGrailsPlugin {
+class AddressGrailsPlugin {
     // the plugin version
     def version = "0.1"
     // the version or versions of Grails the plugin is designed for
