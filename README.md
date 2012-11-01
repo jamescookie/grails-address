@@ -60,3 +60,12 @@ If a fields fails to match your defined regex, you will get an error. You can ov
 
     default.invalid.address.line1=Address error - {0}: {2} does not match {3}
 
+The variables that are available for error messages are as follows:
+
+1. The address field being validated (line1, line2, etc)
+2. The Address class
+3. The value (that failed to match the regex)
+4. The regex used to validate
+
+Note that if you are using version 0.6.0 of the constraints plugin, then the last variable is not available to you.
+
