@@ -32,7 +32,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     def gebVersion = '0.6.3'
-    def seleniumVersion = '2.20.0'
+    def seleniumVersion = '2.25.0'
 
     dependencies {
         test "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
@@ -47,7 +47,7 @@ grails.project.dependency.resolution = {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.7.1"
         runtime ":resources:1.1.5"
-
+        compile ":constraints:0.8.0"
         build ":tomcat:$grailsVersion"
         test ":geb:$gebVersion"
         test ":spock:0.6"
